@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageviewtodo"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/pooh"
+        android:layout_width="80dp"
+        android:layout_height="75dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+
+            android:id="@+id/textviewtitletodo"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:textSize="18dp"
+            android:text="Tổ chức sinh nhật"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/textviewdescription"
+            android:textSize="15dp"
+            android:layout_marginLeft="5dp"
+            android:text="Mô tả todo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imagecalendaricon"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/calendar"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:id="@+id/textviewdeadline"
+                android:layout_toRightOf="@id/imagecalendaricon"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="7dp"
+                android:text="09-02-2019"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
+                android:layout_marginLeft="100dp"
+                android:id="@+id/checkboxComplete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

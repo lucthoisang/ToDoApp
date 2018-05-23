@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLoading"
+    android:orientation="vertical"
+    android:weightSum="3"
+    tools:context=".SignUpActivity">
+
+    <ImageView
+        android:layout_marginTop="25dp"
+        android:src="@drawable/pooh"
+        android:layout_gravity="center"
+        android:layout_width="139dp"
+        android:layout_height="149dp" />
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:background="@color/colorLogin"
+        android:layout_width="350dp"
+        android:orientation="vertical"
+        android:layout_height="90dp">
+
+        <EditText
+            android:textSize="20dp"
+            android:hint="Email Address"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:textSize="20dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!--<Button-->
+    <!--android:text="@string/sign_up"-->
+    <!--android:layout_marginTop="30dp"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_width="250dp"-->
+    <!--android:layout_height="60dp" />-->
+
+    <Button
+        android:id="@+id/buttonlogin"
+        android:layout_marginTop="19dp"
+        android:layout_gravity="center"
+        android:text="Login"
+        android:textColor="#FFFFFF"
+        android:textSize="19sp"
+        android:layout_width="240dp"
+        android:layout_height="45dp"
+        android:background="@drawable/button_login_custom"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="152.29dp"
+            android:layout_height="2dp"
+            android:background="#c0c0c0"/>
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:text="Or"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_marginRight="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="152.29dp"
+            android:layout_height="2dp"
+            android:background="#c0c0c0"/>
+    </LinearLayout>
+
+    <Button
+        android:textSize="20dp"
+        android:text="LOGIN WITH FACEBOOK"
+        android:background="@drawable/button_login_facebook"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
+        android:layout_height="50dp" />
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:text="LOGIN WITH TWITTER"
+        android:background="@drawable/button_login_twitter"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="Don't Have Account?"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:textSize="21dp"
+        android:textColor="#ffffff"
+        android:id="@+id/buttonSignUpNow"
+        android:layout_width="240dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:background="@drawable/button_signup_custom"
+        android:text="SIGN UP NOW" />
+
+</LinearLayout>
