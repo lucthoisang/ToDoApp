@@ -31,25 +31,17 @@ public class TabNotComplete extends Fragment {
     private void AnhXa() {
         listToDo = rootView.findViewById(R.id.listviewnotcomplete);
         dataListModelArrayList = new ArrayList<>();
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
-        dataListModelArrayList.add(new DataListModel(null,"Vợ yêu của anh","Heheheheh","12/2/2019",1));
+        dataListModelArrayList.add(new DataListModel(null,"Test","Heheheheh","12/2/2019",1));
+        dataListModelArrayList.add(new DataListModel(null,"Test","Heheheheh","12/2/2019",1));
+        dataListModelArrayList.add(new DataListModel(null,"Test","Heheheheh","12/2/2019",1));
+        dataListModelArrayList.add(new DataListModel(null,"Test","Heheheheh","12/2/2019",1));
+        dataListModelArrayList.add(new DataListModel(null,"Test","Heheheheh","12/2/2019",1));
+        dataListModelArrayList.add(new DataListModel(null,"Test","Heheheheh","12/2/2019",1));
+        dataListModelArrayList.add(new DataListModel(null,"Test","Heheheheh","12/2/2019",1));
+        dataListModelArrayList.add(new DataListModel(null,"Test","Heheheheh","12/2/2019",1));
+        dataListModelArrayList.add(new DataListModel(null,"Test","Heheheheh","12/2/2019",1));
+        dataListModelArrayList.add(new DataListModel(null,"Test","Heheheheh","12/2/2019",1));
+        dataListModelArrayList.add(new DataListModel(null,"Test","Heheheheh","12/2/2019",1));
+        dataListModelArrayList.add(new DataListModel(null,"Test","Heheheheh","12/2/2019",1));
     }
 }
