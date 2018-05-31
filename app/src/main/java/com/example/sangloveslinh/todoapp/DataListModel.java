@@ -2,18 +2,30 @@ package com.example.sangloveslinh.todoapp;
 
 public class DataListModel {
 
+    Long id;
     byte[] image;
     String title;
     String description;
     String deadline;
-    Integer checked;
+    boolean isAddToMyDay;
+    boolean checked;
 
-    public DataListModel(byte[] image, String title, String description, String deadline, Integer checked) {
+    public DataListModel(Long id, byte[] image, String title, String description, String deadline, boolean isAddToMyDay, boolean checked) {
+        this.id = id;
         this.image = image;
         this.title = title;
         this.description = description;
         this.deadline = deadline;
+        this.isAddToMyDay = isAddToMyDay;
         this.checked = checked;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public byte[] getImage() {
@@ -48,11 +60,19 @@ public class DataListModel {
         this.deadline = deadline;
     }
 
-    public Integer getChecked() {
+    public boolean isAddToMyDay() {
+        return isAddToMyDay;
+    }
+
+    public void setAddToMyDay(boolean addToMyDay) {
+        isAddToMyDay = addToMyDay;
+    }
+
+    public boolean isChecked() {
         return checked;
     }
 
-    public void setChecked(Integer checked) {
+    public void setChecked(boolean checked) {
         this.checked = checked;
     }
 }

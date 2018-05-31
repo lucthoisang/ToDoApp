@@ -10,8 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.sangloveslinh.todoapp.database.AppToDo;
+import com.example.sangloveslinh.todoapp.database.DaoSession;
 
 import java.util.List;
 
@@ -44,7 +48,6 @@ public class ToDoAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         convertView = inflater.inflate(myLayout,null);
@@ -54,17 +57,26 @@ public class ToDoAdapter extends BaseAdapter{
         TextView txtdescription = convertView.findViewById(R.id.textviewdescription);
         TextView txtdeadline = convertView.findViewById(R.id.textviewdeadline);
 //        ImageView imgTodo = convertView.findViewById(R.id.imageviewtodo);
-        CheckBox ckbComplete = convertView.findViewById(R.id.checkboxComplete);
+        final CheckBox ckbComplete = convertView.findViewById(R.id.checkboxComplete);
 
-        DataListModel dataListModel = dataListModels.get(position);
+        final DataListModel dataListModel = dataListModels.get(position);
 
         txttitle.setText(dataListModel.getTitle());
         txtdescription.setText(dataListModel.getDescription());
         txtdeadline.setText(dataListModel.getDeadline());
 //        Bitmap bitmap = BitmapFactory.decodeByteArray(dataListModel.getImage(),0,dataListModel.getImage().length);
 //        imgTodo.setImageBitmap(bitmap);
-        if(dataListModel.getChecked() == 1)
+        if(dataListModel.isChecked() == true)
             ckbComplete.setChecked(true);
+
+        ckbComplete.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(ckbComplete.isChecked() != dataListModel.isChecked()) {
+                    ToDoActivity.UpdateToDo(ckbComplete.isChecked(),dataListModel.getId(),dataListModel.getTitle(),dataListModel.getDescription(),dataListModel.getDeadline(),dataListModel.isAddToMyDay());
+                }
+            }
+        });
         return convertView;
     }
 }
