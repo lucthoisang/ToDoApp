@@ -49,6 +49,15 @@ public class TabMyDay extends Fragment {
     }
 
     private void XuLyListView() {
+        listToDo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                showAlertDialogUpdate();
+            }
+        });
+    }
+
+    private void showAlertDialogUpdate() {
         final DaoSession database = ((AppToDo) ToDoActivity.context).getDaoSession();
         listToDo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -61,12 +70,22 @@ public class TabMyDay extends Fragment {
                 edtdeadline = alertDetailView.findViewById(R.id.edittextDeadLine);
                 edtdesctiption = alertDetailView.findViewById(R.id.edittextNote);
                 imgbtnDeleteDueDate = alertDetailView.findViewById(R.id.buttonDeleteDueDate);
-                ckComplete = alertDetailView.findViewById(R.id.checkboxCompleteTask);
 
                 final Long idToDoCurrent = findIDToDo(database, edtToDoName.getText().toString());
+//                ToDoList toDoList = database.getToDoListDao().load(idToDoCurrent);
+//                edtToDoName.setText(toDoList.getToDoName());
+//                edtdesctiption.setText(toDoList.getToDoDescription());
+//                if(toDoList.getIsAddToMyDayTab() == true)
+//                    txtAddToMyDay.setText("Added to My Day");
+//                else txtAddToMyDay.setText("Add to My Day");
+//                edtdeadline.setText(toDoList.getDueDate());
+//                if(toDoList.getIsComplete() == true)
+//                    ckComplete.setChecked(true);
+//                else ckComplete.setChecked(false);
+
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-                alert.setTitle("Chỉnh sửa to do");
+                alert.setTitle("Cập nhật to do");
                 alert.setView(alertDetailView);
                 alert.setCancelable(false);
                 alert.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
@@ -92,7 +111,7 @@ public class TabMyDay extends Fragment {
                     }
                 });
 
-                alert.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                alert.setPositiveButton("Cập nhật", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         ToDoList toDoList = database.getToDoListDao().load(idToDoCurrent);
@@ -108,7 +127,7 @@ public class TabMyDay extends Fragment {
                         toDoList.setIsAddToToDoListTab(true);
                         toDoList.setIsToDoNotComplete(false);
                         database.getToDoListDao().update(toDoList);
-                        Toast.makeText(getActivity(), "Update to do thành công", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Thêm todo thành công", Toast.LENGTH_SHORT).show();
                         TabMyDay.ReloadList();
                         TabToDo.ReloadList();
                     }

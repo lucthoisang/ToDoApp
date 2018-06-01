@@ -50,6 +50,8 @@
         android:text="Due 09-02-2019" />
 
     <CheckBox
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:id="@+id/checkboxComplete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
