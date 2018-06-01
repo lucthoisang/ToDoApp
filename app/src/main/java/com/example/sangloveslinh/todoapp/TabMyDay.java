@@ -2,12 +2,14 @@ package com.example.sangloveslinh.todoapp;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.database.Cursor;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +28,7 @@ import com.example.sangloveslinh.todoapp.database.ToDoList;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class TabMyDay extends Fragment {
 
@@ -43,18 +47,9 @@ public class TabMyDay extends Fragment {
         rootView = inflater.inflate(R.layout.tab1myday, container, false);
         AnhXa();
         GanListView();
-        XuLyListView();
+        showAlertDialogUpdate();
 
         return rootView;
-    }
-
-    private void XuLyListView() {
-        listToDo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                showAlertDialogUpdate();
-            }
-        });
     }
 
     private void showAlertDialogUpdate() {
@@ -71,17 +66,18 @@ public class TabMyDay extends Fragment {
                 edtdesctiption = alertDetailView.findViewById(R.id.edittextNote);
                 imgbtnDeleteDueDate = alertDetailView.findViewById(R.id.buttonDeleteDueDate);
 
-                final Long idToDoCurrent = findIDToDo(database, edtToDoName.getText().toString());
-//                ToDoList toDoList = database.getToDoListDao().load(idToDoCurrent);
-//                edtToDoName.setText(toDoList.getToDoName());
-//                edtdesctiption.setText(toDoList.getToDoDescription());
-//                if(toDoList.getIsAddToMyDayTab() == true)
-//                    txtAddToMyDay.setText("Added to My Day");
-//                else txtAddToMyDay.setText("Add to My Day");
-//                edtdeadline.setText(toDoList.getDueDate());
-//                if(toDoList.getIsComplete() == true)
-//                    ckComplete.setChecked(true);
-//                else ckComplete.setChecked(false);
+                final Long idToDoCurrent = dataListModelArrayListTabMyDay.get(position).getId();
+
+                ToDoList toDoList = database.getToDoListDao().load(idToDoCurrent);
+                edtToDoName.setText(toDoList.getToDoName());
+                edtdesctiption.setText(toDoList.getToDoDescription());
+                if (toDoList.getIsAddToMyDayTab() == true)
+                    txtAddToMyDay.setText("Added to My Day");
+                else txtAddToMyDay.setText("Add to My Day");
+                edtdeadline.setText(toDoList.getDueDate());
+                if (toDoList.getIsComplete() == true)
+                    ckComplete.setChecked(true);
+                else ckComplete.setChecked(false);
 
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
@@ -127,7 +123,7 @@ public class TabMyDay extends Fragment {
                         toDoList.setIsAddToToDoListTab(true);
                         toDoList.setIsToDoNotComplete(false);
                         database.getToDoListDao().update(toDoList);
-                        Toast.makeText(getActivity(), "Thêm todo thành công", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Cập nhật todo thành công", Toast.LENGTH_SHORT).show();
                         TabMyDay.ReloadList();
                         TabToDo.ReloadList();
                     }
@@ -137,16 +133,6 @@ public class TabMyDay extends Fragment {
                 dialog.show();
             }
         });
-    }
-
-    private Long findIDToDo(DaoSession database, String s) {
-        List<ToDoList> toDoLists = database.getToDoListDao().loadAll();
-        for (ToDoList toDoList : toDoLists) {
-            if (toDoList.getToDoName().equals(s))
-                return toDoList.getToDoId();
-        }
-
-        return null;
     }
 
     private void GanListView() {
