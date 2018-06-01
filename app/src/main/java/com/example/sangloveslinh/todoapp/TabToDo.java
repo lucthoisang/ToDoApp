@@ -45,7 +45,7 @@ public class TabToDo extends Fragment {
         dataListModelArrayListTabToDo.clear();
         ToDoActivity.TO_DO_LISTS = (ArrayList<ToDoList>) database.getToDoListDao().loadAll();
         for (ToDoList toDoList : ToDoActivity.TO_DO_LISTS) {
-            if (toDoList.getIsAddToMyDayTab() == true)
+            if (toDoList.getIsAddToToDoListTab() == true)
                 dataListModelArrayListTabToDo.add(new DataListModel(toDoList.getToDoId(), null, toDoList.getToDoName().toString(), toDoList.getToDoDescription().toString(), toDoList.getDueDate().toString(), toDoList.getIsAddToMyDayTab(), toDoList.getIsComplete()));
         }
         toDoAdapterTabToDo.notifyDataSetChanged();

@@ -42,7 +42,7 @@ public class TabNotComplete extends Fragment {
         dataListModelArrayListTabNotComplete.clear();
         ToDoActivity.TO_DO_LISTS = (ArrayList<ToDoList>) database.getToDoListDao().loadAll();
         for (ToDoList toDoList : ToDoActivity.TO_DO_LISTS) {
-            if (toDoList.getIsAddToMyDayTab() == true)
+            if (toDoList.getIsToDoNotComplete() == true)
                 dataListModelArrayListTabNotComplete.add(new DataListModel(toDoList.getToDoId(),null, toDoList.getToDoName().toString(), toDoList.getToDoDescription().toString(), toDoList.getDueDate().toString(),toDoList.getIsAddToMyDayTab(), toDoList.getIsComplete()));
         }
         toDoAdapterTabNotComplete.notifyDataSetChanged();
