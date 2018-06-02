@@ -60,7 +60,7 @@ public class TabToDo extends Fragment {
 
                 final Long idToDoCurrent = dataListModelArrayListTabToDo.get(position).getId();
 
-                ToDoList toDoList = database.getToDoListDao().load(idToDoCurrent);
+                final ToDoList toDoList = database.getToDoListDao().load(idToDoCurrent);
                 edtToDoName.setText(toDoList.getToDoName());
                 edtdesctiption.setText(toDoList.getToDoDescription());
                 if (toDoList.getIsAddToMyDayTab() == true)
@@ -102,7 +102,6 @@ public class TabToDo extends Fragment {
                 alert.setPositiveButton("Cập nhật", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        ToDoList toDoList = database.getToDoListDao().load(idToDoCurrent);
                         toDoList.setToDoName(edtToDoName.getText().toString());
                         toDoList.setToDoDescription(edtdesctiption.getText().toString());
                         toDoList.setDueDate(edtdeadline.getText().toString());
