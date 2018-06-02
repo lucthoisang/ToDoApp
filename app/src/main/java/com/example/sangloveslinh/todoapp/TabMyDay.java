@@ -26,7 +26,10 @@ import com.example.sangloveslinh.todoapp.database.AppToDo;
 import com.example.sangloveslinh.todoapp.database.DaoSession;
 import com.example.sangloveslinh.todoapp.database.ToDoList;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -156,9 +159,19 @@ public class TabMyDay extends Fragment {
         ToDoActivity.TO_DO_LISTS = (ArrayList<ToDoList>) database.getToDoListDao().loadAll();
         listToDo = rootView.findViewById(R.id.listviewmyday);
         dataListModelArrayListTabMyDay = new ArrayList<>();
+
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        String formattedDate = df.format(c);
+
         for (ToDoList toDoList : ToDoActivity.TO_DO_LISTS) {
-            if (toDoList.getIsAddToMyDayTab() == true)
+            if (toDoList.getIsAddToMyDayTab() == true && toDoList.getDate().toString().equals(formattedDate))
                 dataListModelArrayListTabMyDay.add(new DataListModel(toDoList.getToDoId(), null, toDoList.getToDoName().toString(), toDoList.getToDoDescription().toString(), toDoList.getDueDate().toString(), toDoList.getIsAddToMyDayTab(), toDoList.getIsComplete()));
+            else {
+                toDoList.setIsToDoNotComplete(true);
+                toDoList.setIsAddToMyDayTab(false);
+                TabNotComplete.ReloadList();
+            }
         }
 
     }

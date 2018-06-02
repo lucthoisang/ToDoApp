@@ -34,10 +34,13 @@ public class ToDoList {
     @Property(nameInDb = "isaddtotodolisttab")
     private boolean isAddToToDoListTab;
 
-    @Generated(hash = 1322255604)
+    @Property(nameInDb = "date")
+    private String date;
+
+    @Generated(hash = 1147024083)
     public ToDoList(Long toDoId, String toDoName, String toDoDescription,
             String dueDate, boolean isComplete, boolean isToDoNotComplete,
-            boolean isAddToMyDayTab, boolean isAddToToDoListTab) {
+            boolean isAddToMyDayTab, boolean isAddToToDoListTab, String date) {
         this.toDoId = toDoId;
         this.toDoName = toDoName;
         this.toDoDescription = toDoDescription;
@@ -46,6 +49,7 @@ public class ToDoList {
         this.isToDoNotComplete = isToDoNotComplete;
         this.isAddToMyDayTab = isAddToMyDayTab;
         this.isAddToToDoListTab = isAddToToDoListTab;
+        this.date = date;
     }
 
     @Generated(hash = 707050199)
@@ -114,6 +118,14 @@ public class ToDoList {
 
     public void setIsComplete(boolean isComplete) {
         this.isComplete = isComplete;
+    }
+
+    public String getDate() {
+        return this.date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
 }

@@ -32,7 +32,10 @@ import com.example.sangloveslinh.todoapp.database.DaoSession;
 import com.example.sangloveslinh.todoapp.database.ToDoList;
 import com.example.sangloveslinh.todoapp.database.User;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class ToDoActivity extends AppCompatActivity {
 
@@ -145,6 +148,14 @@ public class ToDoActivity extends AppCompatActivity {
                         else toDoList.setIsComplete(false);
                         toDoList.setIsAddToToDoListTab(true);
                         toDoList.setIsToDoNotComplete(false);
+
+
+
+                        Date c = Calendar.getInstance().getTime();
+                        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                        String formattedDate = df.format(c);
+                        toDoList.setDate(formattedDate);
+
                         database.getToDoListDao().insert(toDoList);
                         Toast.makeText(ToDoActivity.this, "Thêm todo thành công", Toast.LENGTH_SHORT).show();
                         TabMyDay.ReloadList();
